@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Body Mass Index</title>
+	<link rel="stylesheet" type="text/css" href="bmi.css">
+</head>
+<body>
+	<div id="container">
+		<h1>Body Mass Index</h1>
+        
+        <input type="number"  id="weight" placeholder="Weight in Kg"></br></br>
+        <input type="number"  id="height" placeholder="Height in Meter" ></br></br>
+        <input type="value"  id="BMI" placeholder="BMI"  ></br></br>
+        <input type="button"  id="button" value=" validate ">
+        <input type="button"  id="clean" value=" clear "></br>
+		    <span id="display"></span>
+	</div>
+    <script type="text/javascript">
+	  
+       var Weight = document.getElementById('weight');
+       var Height = document.getElementById('height');
+       var bmi = document.getElementById('BMI');
+       var Button = document.getElementById('button');
+       var Clear = document.getElementById('clean');
+       var msg = document.getElementById('display')
+       Button.onclick = calc;
+       Clear.onclick = function(){
+       	 var x = Weight.value ="";
+         var y = Height .value ="";
+         bmi.value = "";
+         msg.innerHTML ="";
+       
+       }
+ 
+      function calc(){
+       var x = Weight.value;
+       var y = Height .value;
+       var z = x /(y*y);
+       var BMI =z.toFixed();
+       if(x==""||y==""||BMI==""){
+     	  msg.innerHTML ="PLEASE ENTER THE REQUIRED DATA";
+        }
+        else{   
+          if(BMI<19){
+        	bmi.value = BMI;
+            msg.innerHTML ="HEY"+ " "+"YOU ARE LEAN";
+            }else if(BMI>25){
+        	bmi.value = BMI;
+            msg.innerHTML ="HEY"+ " " +"YOU ARE OBESSE";
+            }else{
+        	bmi.value = BMI;
+            msg.innerHTML ="HEY"+ " "+"YOU ARE NORMAL";
+            }
+        } 
+     
+     }
+    </script>
+</body>
+</html>
